@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="mdl-grid">
+{% for album in albums %}
+
+    <div class="demo-card-wide mdl-card mdl-shadow--8dp">
+
+        <div class="mdl-card__title brighten" title="{{album.albumTitle}}" style="background: url('{{ album.coverartUrl }}') center / cover;">
+            <a href="{{url_for('albumDetail',genre = album.genre, albumId = album.id)}}"></a>
+        </div>
+
+        <div class="mdl-card__actions mdl-card--border">
+
+          <a href="{{url_for('albumDetail',genre = album.genre, albumId = album.id)}}" title="{{ album.albumTitle }}" tabindex="-1" class="link-fade"> <span>{{ album.albumTitle}}</span><span class="span-fade"></span></a>
+
+          <a href="{{url_for('albumDetail',genre = album.genre, albumId = album.id)}}" title="{{ album.albumTitle }}" class="artist-album">{{ album.artist }}</a>
+        </div>
+    </div>
+    {% else %}
+    <span align="center" class="no-album-msg">{{error}}</span>
+{% endfor %}
+</div>
+{% endblock %}

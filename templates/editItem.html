@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content%}
+<div class="mdl-grid mdl-shadow--2dp form-grid mdl-color--white margin-top-10">
+        <form action="{{url_for('editAlbumDetails', genre = album.genre, albumId = album.id)}}" class="item-form" method="post" id="albumForm">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input-field-text margin-top-5">
+            <input class="mdl-textfield__input" type="text" name="albumTitle" value="{{album.albumTitle}}" id="albumTitle">
+            <label class="mdl-textfield__label" for="albumTitle">Album Title</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input-field-text">
+            <input class="mdl-textfield__input" type="text" name="artist" value="{{album.artist}" id="artist">
+            <label class="mdl-textfield__label" for="artist">Artist</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input-field-text">
+            <input class="mdl-textfield__input" type="text" name="albumCoverart" value="{{album.coverartUrl}}" id="coverarturl">
+            <label class="mdl-textfield__label" for="albumCoverart">Album Coverart</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input-field-text">
+            <textarea class="mdl-textfield__input" type="text"  name="albumDescription" id="description">{{album.description}}</textarea>
+            <label class="mdl-textfield__label" for="albumDescription">Description</label>
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fullwidth input-field-text">
+
+            <input class="mdl-textfield__input" type="text" name="genre" id="genre" value="{{album.genre}}" readonly tabIndex="-1">
+            <label for="genre" class="mdl-textfield__label">Genre</label>
+            <ul for="genre" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                <li class="mdl-menu__item">Hip-Hop</li>
+                <li class="mdl-menu__item">R&B</li>
+                <li class="mdl-menu__item">Pop</li>
+                <li class="mdl-menu__item">Soul</li>
+                <li class="mdl-menu__item">Rock</li>
+                <li class="mdl-menu__item">Other</li>
+            </ul>
+            </div>
+
+        <br>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent input-button mdl-color--teal" onclick="validateDetails()" type="button" value="Edit">
+        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--grey-300 input-button" href="{{url_for('showAlbums')}}">Cancel</a>
+
+      </form>
+</div>
+{% endblock %}
