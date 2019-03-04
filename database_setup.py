@@ -49,5 +49,5 @@ class AlbumDB(Base):
             'description': self.description
         }
 # binds to the database to add this data
-engine = create_engine('sqlite:///AlbumCatalog.db')
+engine = create_engine('postgresql://catalog:password@localhost/catalog')
 Base.metadata.create_all(engine)
