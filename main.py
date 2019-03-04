@@ -40,7 +40,7 @@ APPLICATION_NAME = 'AlbumCatalog'
 # Binds the engine to the metadata of the Base class so
 # that the declaratives can be accessed through a DBSession instance
 
-engine = create_engine('sqlite:///AlbumCatalog.db')
+engine = create_engine('postgresql://catalog:password@localhost/catalog')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
