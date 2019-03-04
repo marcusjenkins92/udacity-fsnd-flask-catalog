@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 
 from database_setup import Base, AlbumDB, User
 
-engine = create_engine('sqlite:///AlbumCatalog.db')
+engine = create_engine('postgresql://catalog:password@localhost/catalog')
 
 Base.metadata.bind = engine
 # The DBsession creates a link with the database. Until the session.commit()
