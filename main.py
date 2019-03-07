@@ -1,25 +1,18 @@
 #!/usr/bin/python
-from flask import (
-    Flask,
-    render_template,
-    request,
-    redirect,
-    url_for,
-    flash,
-    jsonify,
-    session as login_session
-    make_response
-)
+from flask import Flask, render_template, request, redirect, url_for, \
+    flash, jsonify
+from flask import session as login_session
+from flask import make_response
 
-# import from sqlalchemy
+# importing SqlAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, AlbumDB, User
+from database_setup import Base, BookDB, User
 import random
 import string
 import httplib2
-import requests
 import json
+import requests
 
 # import oauth client
 
