@@ -7,7 +7,7 @@ from flask import make_response
 # importing SqlAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, BookDB, User
+from database_setup import Base, AlbumDB, User
 import random
 import string
 import httplib2
